@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nong-kai-svc-prod
+  namespace: prod
+spec:
+  selector:
+    app: nong-kai-api-prod
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: ClusterIP

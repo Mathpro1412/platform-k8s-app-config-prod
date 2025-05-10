@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nong-kai-prod
+  namespace: prod
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nong-kai-api-prod
+  template:
+    metadata:
+      labels:
+        app: nong-kai-api-prod
+    spec:
+      containers:
+        - name: nong-kai-api-prod
+          image: anonja/js-web-app:1.0.0
+          ports:
+            - containerPort: 3000
