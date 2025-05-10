@@ -15,6 +15,6 @@ spec:
     spec:
       containers:
         - name: nong-kai-api-prod
-          image: anonja/js-web-app:1.0.0
+          image: anonja/js-web-app:abdfe65
           ports:
             - containerPort: 3000
