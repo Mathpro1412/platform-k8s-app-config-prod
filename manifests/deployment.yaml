@@ -8,10 +8,14 @@ spec:
   selector:
     matchLabels:
       app: nong-kai-api-prod
+      app.kubernetes.io/env: prod
+      app.kubernetes.io/managed-by: kustomize
   template:
     metadata:
       labels:
         app: nong-kai-api-prod
+        app.kubernetes.io/env: prod
+        app.kubernetes.io/managed-by: kustomize
     spec:
       containers:
         - name: nong-kai-api-prod
