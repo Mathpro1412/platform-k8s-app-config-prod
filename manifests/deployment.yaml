@@ -22,3 +22,6 @@ spec:
           image: anonja/js-web-app:449b0c7
           ports:
             - containerPort: 3000
+          envFrom:
+            - configMapRef:
+                name: nong-kai-api
