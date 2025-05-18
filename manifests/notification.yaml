@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: notify-discord
+  annotations:
+    argocd.argoproj.io/hook: PostSync
+    argocd.argoproj.io/hook-delete-policy: HookSucceeded
+spec:
+  template:
+    spec:
+      containers:
+        - name: notify
+          image: curlimages/curl:latest
+          command:
+            - /bin/sh
+            - -c
+            - >
+              curl -X POST -H "Content-Type: application/json" -d "{\"content\": \"🚀 Sync Test clear\"}" https://discord.com/api/webhooks/1373677287006011586/tWgjgjxMemL1PiEE-Oj2Ws48QajYdnHIpcwmbC-DZCOYeclItnwMOZa5Lh1WY2m7txk0
+      restartPolicy: Never
